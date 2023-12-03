@@ -55,7 +55,7 @@ main() {
                                                                                 
     beacon_frame = (beacon_frame_t *)data;                                      
                                                                                 
-    FILE *fp = fopen("beacon_pkt.txt", "r");                                    
+    FILE *fp = fopen("beacon_packets.txt", "r");                                    
                                                                                 
     while(fgets(line_buffer, line_len, fp)) {                                   
         /* Get Packet data and convert into HEXA format */                                                              
