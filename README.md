@@ -8,3 +8,24 @@ Accelerometer data from real BLE tag and detect movement
 3. Run code
    ./a.out
 
+# Sample output
+Beacon Accelerometer Frame Detected
+    X-axis fff4, Y-axis 000f, Z-axis ff00
+    Battery Level 100
+    Mac address 37 : 72 : a3 : 3f : 23 : ac
+
+    Detected movement.
+
+Beacon Accelerometer Frame Detected
+    X-axis fff6, Y-axis 0011, Z-axis ff00
+    Battery Level 100
+    Mac address 37 : 72 : a3 : 3f : 23 : ac
+
+    Detected movement.
+
+Beacon Accelerometer Frame Detected
+    X-axis fff4, Y-axis 0011, Z-axis ff03
+    Battery Level 100
+    Mac address 37 : 72 : a3 : 3f : 23 : ac
+
+    Detected movement.
