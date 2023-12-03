@@ -63,7 +63,10 @@ main() {
             strncpy(temp, line_buffer + i, 8);                                  
             temp[8] = '\0';                      
             val = (int)strtol(temp, NULL, 16);                                                                               
-            for (idx = 3; idx >= 0; idx--) {                                    
+            for (idx = 3; idx >= 0; idx--) {   
+                 if (val < 0xffff && idx >= 2) {
+                     continue;
+                 }
                 data_int[count++] = *(char *) ((char * )&val + idx);                                                                                
             }                                                                   
             memset(temp, 0, 10);                                                
@@ -92,7 +95,14 @@ main() {
            *(char *)((char *)&z + 0) = beacon_acc_frame->z_axis[1];             
                                                                                 
             printf("Beacon Accelerometer Frame Detected\n");                    
-            printf("    X-axis %04x, Y-axis %04x, Z-axis %04x \n", x, y, z);    
+            printf("    X-axis %04x, Y-axis %04x, Z-axis %04x \n", x, y, z);
+			printf("	Battery Level %d \n", beacon_acc_frame->battery_level);
+			printf("    Mac address %x : %x : %x : %x : %x : %x \n", beacon_acc_frame->mac_add[0],
+                                                                     beacon_acc_frame->mac_add[1],
+                                                                     beacon_acc_frame->mac_add[2],
+                                                                     beacon_acc_frame->mac_add[3],
+                                                                     beacon_acc_frame->mac_add[4],
+                                                                     beacon_acc_frame->mac_add[5]);
             if (x != p_x || y != p_y || z != p_z) {                             
                 printf("\n    Detected movement. \n");                          
             } else {                                                            
@@ -102,7 +112,8 @@ main() {
             p_x = x;                                                            
             p_y = y;                                                            
             p_z = z;                                                            
-        } else {                                                                
+        } else { 
+#if 0
             printf("\nBeacon Frame Detected\n");                                
             printf("    Data Len %x \n", beacon_frame->data_length);            
             printf("    Frame dat Type %x \n", beacon_frame->frame_data_type);  
@@ -112,7 +123,8 @@ main() {
             printf("    Company ID : %x%x \n", beacon_frame->company_id[0],     
                     beacon_frame->company_id[1]);                               
             printf("    Beacon Type: %02x%02X \n", beacon_frame->beacon_type[0],
-                    beacon_frame->beacon_type[1]);                              
+                    beacon_frame->beacon_type[1]);
+#endif
             printf("\n");                                                       
         }                                                                       
                                                                                 
