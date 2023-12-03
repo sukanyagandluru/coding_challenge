@@ -1,6 +1,6 @@
 # coding_challenge
 Accelerometer data from real BLE tag and detect movement  
-
+# This code will fetch data from beacon_packets.txt and process the packet, it will not fetch fromr real bluetooth device.
 1. Steps to compile:
    cc beacon_code.c
 2. Make sure to keep beacon_packets.txt in same path.
