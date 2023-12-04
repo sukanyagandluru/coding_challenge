@@ -49,12 +49,8 @@ main() {
     unsigned int val = 0;                                                       
     unsigned char  beacon_flag = 0;                                             
     unsigned short int x = 0, y = 0, z = 0;                                     
-    unsigned short int p_x = 0, p_y = 0, p_z = 0;                               
-                                                                                
-    unsigned char data[100] = {0x02, 0x01, 0x06, 0x03, 0x03, 0xE1, 0xFF, 0x12, 0x16, 0xE1, 0xFF, 0xA1, 0x03, 0x64, 0xFF, 0xF4, 0x00, 0x0F, 0xFF, 0x00, 0x37, 0x72, 0xA3, 0x3F, 0x23, 0xAC};
-                                                                                
-    beacon_frame = (beacon_frame_t *)data;                                      
-                                                                                
+    unsigned short int p_x = 0, p_y = 0, p_z = 0;
+
     FILE *fp = fopen("beacon_packets.txt", "r");                                    
                                                                                 
     while(fgets(line_buffer, line_len, fp)) {                                   
